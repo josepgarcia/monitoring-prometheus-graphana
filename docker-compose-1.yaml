@@ -2,7 +2,7 @@ services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "./prometheus-1.yml:/etc/prometheus/prometheus.yml"
     networks:
       - localprom
     ports:
