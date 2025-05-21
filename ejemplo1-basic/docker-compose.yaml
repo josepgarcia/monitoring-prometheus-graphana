@@ -1,0 +1,16 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    networks:
+      - localprom
+    ports:
+      - 9090:9090
+
+networks:
+  localprom:
+    driver: bridge
+## Creamos una red para aislar los contendores y
+## para que los contenedores se busquen a través de su nombre
+## en prometheus.yml hacemos la petición a prometheus:9090

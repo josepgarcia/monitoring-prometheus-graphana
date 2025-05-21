@@ -2,7 +2,7 @@ services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - "./prometheus-2.yml:/etc/prometheus/prometheus.yml"
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
     networks:
       - localprom
     ports:
@@ -11,8 +11,13 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
+    privileged: true # solucion errores
+    command: # solicion errores
+      - --disable_metrics=disk,referenced_memory
     ports:
       - 8080:8080
+    networks:
+      - localprom
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
