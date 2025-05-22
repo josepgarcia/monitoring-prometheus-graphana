@@ -1,12 +1,10 @@
-
-# Verificar funcionamiento
-docker compose up -d
-
-curl http://localhost:8000
-
-Podemos ver si la app està enlazada desde
-http://localhost:9090/targets
-
 # Metrics
 docker compose up -d --build app
+
+docker compose up -d
+
+# Enlaces
+https://betterstack.com/community/guides/monitoring/prometheus-python-metrics/
+
+https://medium.com/@letathenasleep/exposing-python-metrics-with-prometheus-c5c837c21e4d
 
